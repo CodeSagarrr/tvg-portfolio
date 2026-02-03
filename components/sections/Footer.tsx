@@ -4,6 +4,8 @@ import { motion } from 'framer-motion'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
+  const brandName = 'Premium Agency'
+  const brandDescription = 'Premium service-based agency delivering exceptional results.'
 
   const footerLinks = {
     company: [
@@ -26,20 +28,20 @@ export default function Footer() {
             <div className="lg:col-span-2">
               <motion.a
                 href="#"
-                className="inline-block text-2xl lg:text-3xl font-luxury font-bold text-dark-50 mb-6"
+                className="inline-block text-2xl lg:text-3xl font-display font-bold text-dark-50 mb-6"
                 whileHover={{ scale: 1.05 }}
               >
-                {/* Logo placeholder */}
+                {brandName}
               </motion.a>
               <p className="text-dark-400 max-w-md leading-relaxed">
-                {/* Company description placeholder */}
+                {brandDescription}
               </p>
             </div>
 
             {/* Company Links */}
             <div>
               <h3 className="text-dark-50 font-semibold mb-4">
-                {/* Column title placeholder */}
+                Company
               </h3>
               <ul className="space-y-3">
                 {footerLinks.company.map((link) => (
@@ -58,7 +60,7 @@ export default function Footer() {
             {/* Legal Links */}
             <div>
               <h3 className="text-dark-50 font-semibold mb-4">
-                {/* Column title placeholder */}
+                Legal
               </h3>
               <ul className="space-y-3">
                 {footerLinks.legal.map((link) => (
@@ -79,12 +81,17 @@ export default function Footer() {
           <div className="border-t border-dark-800 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-dark-500 text-sm">
-                © {currentYear} {/* Company name placeholder */}. All rights reserved.
+                © {currentYear} {brandName}. All rights reserved.
               </p>
               
               {/* Social Links Placeholder */}
               <div className="flex items-center gap-4">
-                {/* Social media links placeholder */}
+                <a
+                  href="#contact"
+                  className="text-dark-500 hover:text-primary-500 transition-colors text-sm"
+                >
+                  Contact
+                </a>
               </div>
             </div>
           </div>

@@ -45,7 +45,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="font-headline font-semibold text-dark-50 mb-5 lg:mb-6 leading-[1.15] tracking-[-0.02em]"
+            className="font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-dark-50 via-primary-200 to-primary-400 mb-5 lg:mb-6 leading-[1.15] tracking-[-0.02em]"
             style={{
               fontSize: 'clamp(2.25rem, 5.5vw, 4rem)',
             }}
@@ -58,7 +58,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="text-base sm:text-lg lg:text-xl text-dark-300 mb-8 lg:mb-10 max-w-2xl mx-auto leading-relaxed"
+            className="font-sans text-base lg:text-xl text-dark-300 mb-8 lg:mb-10 max-w-2xl mx-auto leading-relaxed"
           >
             We build appointment focused landing pages for clinics, salons and service businesses designed to turn visitors into booked customers.
           </motion.p>

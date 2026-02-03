@@ -36,9 +36,11 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
-        headline: ['var(--font-space-grotesk)', 'system-ui', 'sans-serif'],
-        display: ['var(--font-space-grotesk)', 'system-ui', 'sans-serif'],
+        // Ubuntu – body / paragraph
+        sans: ['var(--font-body)', 'system-ui', 'sans-serif'],
+        // Oswald – headings / display
+        headline: ['var(--font-heading)', 'system-ui', 'sans-serif'],
+        display: ['var(--font-heading)', 'system-ui', 'sans-serif'],
       },
       fontSize: {
         'display-1': ['clamp(3rem, 8vw, 6rem)', { lineHeight: '1.1', letterSpacing: '-0.02em' }],

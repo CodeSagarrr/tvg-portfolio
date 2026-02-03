@@ -7,7 +7,130 @@ export default function Services() {
   const ref = useRef<HTMLElement>(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
-  const services = [1, 2, 3, 4, 5, 6] // Placeholder array
+  const painPoints = [
+    {
+      title: 'Too many options',
+      description: 'Visitors get overwhelmed when they have to choose where to click next.',
+      icon: (
+        <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path
+            d="M4 6h10M4 12h16M4 18h13"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+        </svg>
+      ),
+    },
+    {
+      title: 'No clear next step',
+      description: 'If the call-to-action is not obvious, people leave—even when they are interested.',
+      icon: (
+        <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path
+            d="M12 3v10m0 0l-3-3m3 3l3-3"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M4 21h16"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+        </svg>
+      ),
+    },
+    {
+      title: 'Looks fine, doesn’t convert',
+      description: 'A “good-looking” site can still fail when the message and layout are not focused.',
+      icon: (
+        <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path
+            d="M4 7h16v10H4V7Z"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M7 10h7M7 13h10"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+        </svg>
+      ),
+    },
+    {
+      title: 'Slow decision path',
+      description: 'People do not want to read multiple pages to understand what you do and how to book.',
+      icon: (
+        <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path
+            d="M12 8v5l3 2"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+            stroke="currentColor"
+            strokeWidth="2"
+          />
+        </svg>
+      ),
+    },
+    {
+      title: 'Traffic leaks away',
+      description: 'Visitors get distracted by menus, extra links, and unrelated pages.',
+      icon: (
+        <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path
+            d="M7 7h10v10H7V7Z"
+            stroke="currentColor"
+            strokeWidth="2"
+          />
+          <path
+            d="M21 3l-6 6"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+          <path
+            d="M17 3h4v4"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      ),
+    },
+    {
+      title: 'Hard to measure',
+      description: 'Without a single goal, it is difficult to know what is working and what needs fixing.',
+      icon: (
+        <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path
+            d="M4 19V5m0 14h16"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+          <path
+            d="M7 16l4-4 3 3 5-7"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      ),
+    },
+  ]
 
   return (
     <section
@@ -36,52 +159,41 @@ export default function Services() {
             className="text-center mb-16 lg:mb-24"
           >
             <h2 className="text-display-2 font-display font-bold text-dark-50 mb-6">
-              {/* Section title placeholder */}
+              Why Normal Websites Don’t Work
             </h2>
             <p className="text-dark-300 text-lg lg:text-xl max-w-2xl mx-auto">
-              {/* Section description placeholder */}
+              When the goal is appointments, a multi-page website often adds friction instead of clarity.
             </p>
             <div className="w-24 h-1 bg-primary-600 mx-auto mt-6" />
           </motion.div>
 
-          {/* Services Grid */}
+          {/* Pain Points Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {services.map((service, index) => (
+            {painPoints.map((point, index) => (
               <motion.div
-                key={service}
+                key={point.title}
                 initial={{ opacity: 0, y: 50 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group relative bg-dark-900 border border-dark-800 rounded-sm p-8 hover:border-primary-600 transition-all duration-300"
+                className="group relative bg-dark-900/60 backdrop-blur-sm border border-dark-800/80 rounded-2xl p-7 lg:p-8 hover:border-primary-600/60 transition-all duration-300"
               >
-                {/* 3D Hover Effect */}
+                {/* Soft Hover Wash */}
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-primary-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-sm"
-                  whileHover={{ scale: 1.02 }}
+                  className="absolute inset-0 bg-gradient-to-br from-primary-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"
                 />
 
-                {/* Icon Placeholder */}
-                <div className="w-16 h-16 bg-primary-600/20 rounded-sm mb-6 flex items-center justify-center group-hover:bg-primary-600/30 transition-colors duration-300">
-                  {/* Icon placeholder */}
+                {/* Icon */}
+                <div className="w-12 h-12 bg-primary-600/15 text-primary-300 rounded-2xl mb-6 flex items-center justify-center border border-primary-600/20 group-hover:bg-primary-600/20 transition-colors duration-300">
+                  {point.icon}
                 </div>
 
                 {/* Content */}
                 <h3 className="text-2xl font-display font-semibold text-dark-50 mb-4">
-                  {/* Service title placeholder */}
+                  {point.title}
                 </h3>
                 <p className="text-dark-300 leading-relaxed">
-                  {/* Service description placeholder */}
+                  {point.description}
                 </p>
-
-                {/* Hover Arrow */}
-                <motion.div
-                  className="absolute bottom-8 right-8 text-primary-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  whileHover={{ x: 5 }}
-                >
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </motion.div>
               </motion.div>
             ))}
           </div>

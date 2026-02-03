@@ -7,7 +7,78 @@ export default function Process() {
   const ref = useRef<HTMLElement>(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
-  const steps = [1, 2, 3, 4] // Placeholder array
+  const steps = [
+    {
+      title: 'Focused message',
+      description: 'We align the headline, sub-headline, and offer around one clear outcome.',
+      icon: (
+        <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path
+            d="M12 4v16m8-8H4"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+        </svg>
+      ),
+    },
+    {
+      title: 'Simple structure',
+      description: 'Short sections, clean hierarchy, and scanning-friendly layout.',
+      icon: (
+        <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path
+            d="M6 7h12M6 12h12M6 17h8"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+        </svg>
+      ),
+    },
+    {
+      title: 'Strong CTA',
+      description: 'Clear buttons placed where people naturally decide to book.',
+      icon: (
+        <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path
+            d="M8 12h8m0 0l-3-3m3 3l-3 3"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M4 6h16v12H4V6Z"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinejoin="round"
+          />
+        </svg>
+      ),
+    },
+    {
+      title: 'Conversion-ready feel',
+      description: 'Premium visuals, responsive spacing, and subtle motion that builds trust.',
+      icon: (
+        <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path
+            d="M12 21s7-4.5 7-11a7 7 0 0 0-14 0c0 6.5 7 11 7 11Z"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M9.5 10.5l1.8 1.8 3.8-3.8"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      ),
+    },
+  ]
 
   return (
     <section
@@ -28,8 +99,11 @@ export default function Process() {
             className="text-center mb-16 lg:mb-24"
           >
             <h2 className="text-display-2 font-display font-bold text-dark-50 mb-6">
-              {/* Section title placeholder */}
+              How a Landing Page Fixes This
             </h2>
+            <p className="text-dark-300 text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed">
+              A landing page removes friction and guides visitors with clarity, structure, and a single call-to-action.
+            </p>
             <div className="w-24 h-1 bg-primary-600 mx-auto" />
           </motion.div>
 
@@ -38,34 +112,32 @@ export default function Process() {
             {/* Connection Line (Desktop) */}
             <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-dark-800 transform -translate-y-1/2" />
 
-            <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-4">
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-6">
               {steps.map((step, index) => (
                 <motion.div
-                  key={step}
+                  key={step.title}
                   initial={{ opacity: 0, y: 50 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: index * 0.15 }}
-                  className="relative"
+                  className="relative group"
                 >
                   {/* Step Number Circle */}
                   <div className="relative z-10 flex flex-col items-center">
                     <motion.div
-                      className="w-20 h-20 lg:w-24 lg:h-24 bg-dark-800 border-2 border-primary-600 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary-600 transition-colors duration-300"
-                      whileHover={{ scale: 1.1, rotate: 360 }}
-                      transition={{ duration: 0.6 }}
+                      className="w-20 h-20 lg:w-24 lg:h-24 bg-dark-950/40 border border-dark-800 rounded-2xl flex items-center justify-center mb-6 text-primary-300 group-hover:border-primary-600/60 group-hover:bg-primary-600/10 transition-colors duration-300 shadow-premium"
+                      whileHover={{ scale: 1.03, y: -2 }}
+                      transition={{ duration: 0.25 }}
                     >
-                      <span className="text-3xl lg:text-4xl font-display font-bold text-primary-600 group-hover:text-dark-950 transition-colors duration-300">
-                        {/* Step number placeholder */}
-                      </span>
+                      {step.icon}
                     </motion.div>
 
                     {/* Step Content */}
                     <div className="text-center">
                       <h3 className="text-xl lg:text-2xl font-display font-semibold text-dark-50 mb-4">
-                        {/* Step title placeholder */}
+                        {step.title}
                       </h3>
                       <p className="text-dark-300 leading-relaxed">
-                        {/* Step description placeholder */}
+                        {step.description}
                       </p>
                     </div>
                   </div>

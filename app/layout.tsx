@@ -1,17 +1,18 @@
 import type { Metadata } from 'next'
-import { Inter, Space_Grotesk } from 'next/font/google'
+import { Oswald, Ubuntu } from 'next/font/google'
 import './globals.css'
 
-const inter = Inter({
+const oswald = Oswald({
   subsets: ['latin'],
-  variable: '--font-inter',
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-heading',
   display: 'swap',
 })
 
-const spaceGrotesk = Space_Grotesk({
+const ubuntu = Ubuntu({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-space-grotesk',
+  weight: ['400', '500', '700'],
+  variable: '--font-body',
   display: 'swap',
 })
 
@@ -19,8 +20,6 @@ export const metadata: Metadata = {
   title: 'Premium Agency | Transform Your Business',
   description: 'Premium service-based agency delivering exceptional results',
   keywords: 'agency, services, premium, business transformation',
-  authors: [{ name: 'Premium Agency' }],
-  viewport: 'width=device-width, initial-scale=1',
 }
 
 export default function RootLayout({
@@ -30,7 +29,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased`}>
+      <body className={`${oswald.variable} ${ubuntu.variable} font-sans antialiased`}>
         {children}
       </body>
     </html>
