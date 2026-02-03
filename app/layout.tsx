@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Oswald, Ubuntu } from 'next/font/google'
+import { Oswald, Ubuntu , Inter , Manrope} from 'next/font/google'
 import './globals.css'
 
 const oswald = Oswald({
@@ -9,7 +9,7 @@ const oswald = Oswald({
   display: 'swap',
 })
 
-const ubuntu = Ubuntu({
+const ubuntu = Manrope({
   subsets: ['latin'],
   weight: ['400', '500', '700'],
   variable: '--font-body',

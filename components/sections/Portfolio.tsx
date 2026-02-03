@@ -2,6 +2,7 @@
 
 import { motion, useInView, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
+import TiltCard from '@/components/TiltCard'
 
 export default function Portfolio() {
   const ref = useRef<HTMLElement>(null)
@@ -44,7 +45,7 @@ export default function Portfolio() {
     <section
       ref={ref}
       id="portfolio"
-      className="relative py-section bg-dark-950 overflow-hidden"
+      className="relative py-section overflow-hidden bg-dark-50"
     >
       {/* Parallax Background */}
       <motion.div
@@ -63,10 +64,10 @@ export default function Portfolio() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16 lg:mb-24"
           >
-            <h2 className="text-display-2 font-display font-bold text-dark-50 mb-6">
+            <h2 className="text-display-2 font-display font-bold text-dark-900 mb-6">
               Landing Page Templates
             </h2>
-            <p className="text-dark-300 text-lg lg:text-xl max-w-2xl mx-auto mb-6">
+            <p className="text-dark-700 text-lg lg:text-xl max-w-2xl mx-auto mb-6">
               Clean, conversion focused layouts you can use as a starting point kept minimal and premium.
             </p>
             <div className="w-24 h-1 bg-primary-600 mx-auto" />
@@ -75,17 +76,19 @@ export default function Portfolio() {
           {/* Portfolio Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {templates.map((template, index) => (
-              <motion.div
+              <TiltCard
                 key={template.title}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group relative overflow-hidden rounded-2xl bg-dark-900/60 backdrop-blur-sm border border-dark-800/80 hover:border-primary-600/50 transition-colors"
+                className="group relative overflow-hidden rounded-2xl bg-white border border-dark-300 hover:border-primary-500 transition-colors shadow-sm"
+                tiltMax={9}
+                lift={10}
               >
                 {/* Image/Visual Placeholder */}
-                <div className="aspect-[4/3] bg-dark-950/30 relative overflow-hidden">
+                <div className="aspect-[4/3] bg-dark-50 relative overflow-hidden">
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-br from-primary-600/20 via-dark-950/10 to-primary-500/10"
+                    className="absolute inset-0 bg-gradient-to-br from-primary-200/30 via-transparent to-primary-200/20"
                     whileHover={{ scale: 1.06 }}
                     transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                   />
@@ -94,11 +97,11 @@ export default function Portfolio() {
                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     initial={false}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-t from-dark-950/70 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-transparent" />
                   </motion.div>
                   
                   <div className="absolute inset-0 p-6 flex items-end">
-                    <div className="inline-flex items-center gap-2 rounded-full border border-dark-800/70 bg-dark-950/40 px-3 py-1.5 text-xs text-dark-200">
+                    <div className="inline-flex items-center gap-2 rounded-full border border-dark-300 bg-white px-3 py-1.5 text-xs text-dark-700">
                       <span className="h-1.5 w-1.5 rounded-full bg-primary-500" />
                       Preview
                     </div>
@@ -107,14 +110,14 @@ export default function Portfolio() {
 
                 {/* Project Info */}
                 <div className="p-6">
-                  <h3 className="text-xl font-display font-semibold text-dark-50 mb-2">
+                  <h3 className="text-xl font-display font-semibold text-dark-900 mb-2">
                     {template.title}
                   </h3>
-                  <p className="text-dark-300 text-sm leading-relaxed">
+                  <p className="text-dark-700 text-sm leading-relaxed">
                     {template.benefit}
                   </p>
                 </div>
-              </motion.div>
+              </TiltCard>
             ))}
           </div>
 
@@ -126,7 +129,7 @@ export default function Portfolio() {
             className="text-center mt-12"
           >
             <motion.button
-              className="px-8 py-4 bg-transparent border border-dark-700 hover:border-primary-600/70 text-dark-200 hover:text-dark-50 font-semibold rounded-2xl transition-all duration-300"
+              className="px-8 py-4 bg-transparent border border-dark-300 hover:border-primary-500 text-dark-700 hover:text-primary-500 font-semibold rounded-2xl transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

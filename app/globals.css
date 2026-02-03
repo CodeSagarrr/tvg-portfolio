@@ -12,8 +12,10 @@
   }
   
   body {
-    @apply bg-dark-950 text-dark-50;
+    @apply text-dark-700;
     @apply overflow-x-hidden;
+    background: #ffffff;
+    min-height: 100vh;
   }
 }
 
@@ -46,19 +48,21 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-dark-900;
+  background: #ffffff;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-dark-700 rounded-full;
+  background: #e5e7eb;
+  border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-dark-600;
+  background: #cbd5e1;
 }
 
 /* Selection */
 ::selection {
-  @apply bg-primary-500 text-dark-950;
+  background: #7c6cff;
+  color: #ffffff;
 }
 

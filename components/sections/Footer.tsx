@@ -20,7 +20,7 @@ export default function Footer() {
   }
 
   return (
-    <footer className="relative bg-dark-950 border-t border-dark-800">
+    <footer className="relative border-t border-dark-300 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-12">
@@ -28,19 +28,19 @@ export default function Footer() {
             <div className="lg:col-span-2">
               <motion.a
                 href="#"
-                className="inline-block text-2xl lg:text-3xl font-display font-bold text-dark-50 mb-6"
+                className="inline-block text-2xl lg:text-3xl font-display font-bold text-dark-900 mb-6"
                 whileHover={{ scale: 1.05 }}
               >
                 {brandName}
               </motion.a>
-              <p className="text-dark-400 max-w-md leading-relaxed">
+              <p className="text-dark-600 max-w-md leading-relaxed">
                 {brandDescription}
               </p>
             </div>
 
             {/* Company Links */}
             <div>
-              <h3 className="text-dark-50 font-semibold mb-4">
+              <h3 className="text-dark-900 font-semibold mb-4">
                 Company
               </h3>
               <ul className="space-y-3">
@@ -48,7 +48,7 @@ export default function Footer() {
                   <li key={link.href}>
                     <a
                       href={link.href}
-                      className="text-dark-400 hover:text-primary-500 transition-colors duration-300"
+                      className="text-dark-600 hover:text-primary-500 transition-colors duration-300"
                     >
                       {link.label}
                     </a>
@@ -59,7 +59,7 @@ export default function Footer() {
 
             {/* Legal Links */}
             <div>
-              <h3 className="text-dark-50 font-semibold mb-4">
+              <h3 className="text-dark-900 font-semibold mb-4">
                 Legal
               </h3>
               <ul className="space-y-3">
@@ -67,7 +67,7 @@ export default function Footer() {
                   <li key={link.href}>
                     <a
                       href={link.href}
-                      className="text-dark-400 hover:text-primary-500 transition-colors duration-300"
+                      className="text-dark-600 hover:text-primary-500 transition-colors duration-300"
                     >
                       {link.label}
                     </a>
@@ -78,9 +78,9 @@ export default function Footer() {
           </div>
 
           {/* Bottom Bar */}
-          <div className="border-t border-dark-800 pt-8">
+          <div className="border-t border-dark-300 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-dark-500 text-sm">
+              <p className="text-dark-600 text-sm">
                 © {currentYear} {brandName}. All rights reserved.
               </p>
               
@@ -88,7 +88,7 @@ export default function Footer() {
               <div className="flex items-center gap-4">
                 <a
                   href="#contact"
-                  className="text-dark-500 hover:text-primary-500 transition-colors text-sm"
+                  className="text-dark-600 hover:text-primary-500 transition-colors text-sm"
                 >
                   Contact
                 </a>

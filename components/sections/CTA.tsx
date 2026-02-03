@@ -2,6 +2,7 @@
 
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
+import TiltCard from '@/components/TiltCard'
 
 export default function CTA() {
   const ref = useRef<HTMLElement>(null)
@@ -11,11 +12,11 @@ export default function CTA() {
     <section
       ref={ref}
       id="contact"
-      className="relative py-section bg-dark-950 overflow-hidden"
+      className="relative py-section overflow-hidden bg-dark-50"
     >
       {/* Animated Background */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-600/10 via-dark-950 to-primary-500/10" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-200/20 via-transparent to-primary-200/10" />
         <motion.div
           className="absolute top-1/2 left-1/2 w-96 h-96 bg-primary-600 rounded-full blur-3xl opacity-20"
           animate={{
@@ -33,27 +34,29 @@ export default function CTA() {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.div
+          <TiltCard
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="bg-dark-900/45 backdrop-blur-xl border border-dark-800/80 rounded-2xl p-10 sm:p-12 lg:p-16 shadow-premium"
+            className="bg-white border border-dark-300 rounded-2xl p-10 sm:p-12 lg:p-16 shadow-sm"
+            tiltMax={7}
+            lift={10}
           >
             {/* Heading */}
-            <h2 className="text-display-2 font-display font-bold text-dark-50 mb-6">
+            <h2 className="text-display-2 font-display font-bold text-dark-900 mb-6">
               Ready to Turn Visits Into Bookings?
             </h2>
 
             {/* Description */}
-            <p className="text-dark-300 text-lg lg:text-xl mb-10 max-w-2xl mx-auto">
+            <p className="text-dark-700 text-lg lg:text-xl mb-10 max-w-2xl mx-auto">
               Get a premium, conversion-focused landing page with clean hierarchy, clear CTAs, and subtle motion built for service businesses.
             </p>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <motion.button
-                className="w-full sm:w-auto px-8 py-4 bg-primary-600 hover:bg-primary-500 text-dark-50 font-display font-bold tracking-[0.04em] text-base rounded-2xl transition-all duration-200 shadow-lg shadow-primary-600/20"
-                whileHover={{ scale: 1.03, boxShadow: '0 18px 45px rgba(14, 165, 233, 0.28)' }}
+                className="w-full sm:w-auto px-8 py-4 bg-primary-500 hover:bg-primary-600 text-white font-display font-bold tracking-[0.04em] text-base rounded-xl transition-all duration-200 shadow-sm"
+                whileHover={{ scale: 1.02, boxShadow: '0 4px 12px rgba(124, 108, 255, 0.25)' }}
                 whileTap={{ scale: 0.98 }}
               >
                 Get Free Demo
@@ -63,12 +66,12 @@ export default function CTA() {
                 href="https://wa.me/1234567890"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-8 py-4 bg-dark-950/30 hover:bg-dark-950/45 border border-dark-700 hover:border-primary-600/50 text-dark-200 hover:text-dark-50 font-display font-bold tracking-[0.04em] text-base rounded-2xl transition-all duration-200 inline-flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-8 py-4 bg-transparent hover:bg-primary-200/30 border border-primary-500 hover:border-primary-600 text-primary-500 hover:text-primary-600 font-display font-bold tracking-[0.04em] text-base rounded-xl transition-all duration-200 inline-flex items-center justify-center gap-2"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
               >
                 <svg
-                  className="w-5 h-5 text-primary-400"
+                  className="w-5 h-5 text-primary-500"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -80,7 +83,7 @@ export default function CTA() {
               </motion.a>
             </div>
 
-            <p className="text-dark-400 text-sm mt-6">
+            <p className="text-dark-600 text-sm mt-6">
               Limited availability book early.
             </p>
 
@@ -93,7 +96,7 @@ export default function CTA() {
             >
               <a
                 href="#portfolio"
-                className="text-dark-400 hover:text-primary-500 transition-colors duration-300 inline-flex items-center gap-2 font-medium"
+                className="text-dark-600 hover:text-primary-500 transition-colors duration-300 inline-flex items-center gap-2 font-medium"
               >
                 See template previews
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -101,7 +104,7 @@ export default function CTA() {
                 </svg>
               </a>
             </motion.div>
-          </motion.div>
+          </TiltCard>
         </div>
       </div>
     </section>

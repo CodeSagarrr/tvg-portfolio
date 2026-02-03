@@ -12,31 +12,31 @@ import ParallaxProvider from '@/components/ParallaxProvider'
 export default function Home() {
   return (
     <ParallaxProvider>
-      <Navigation />
+      {/* <Navigation /> */}
       <main className="relative">
         {/* Hero Section */}
         <Hero />
         
         {/* About Section */}
         <About />
+
+        {/* Testimonials Section */}
+        <Testimonials />
+
+         {/* Process Section */}
+         <Process />
+        
+         {/* Portfolio Section */}
+         <Portfolio />
         
         {/* Services Section */}
         <Services />
         
-        {/* Process Section */}
-        <Process />
-        
-        {/* Portfolio Section */}
-        <Portfolio />
-        
-        {/* Testimonials Section */}
-        <Testimonials />
-        
-        {/* CTA Section */}
-        <CTA />
+         {/* CTA Section */}
+         <CTA />
         
         {/* Footer Section */}
-        <Footer />
+        {/* <Footer /> */}
       </main>
     </ParallaxProvider>
   )

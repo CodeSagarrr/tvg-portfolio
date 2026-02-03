@@ -19,20 +19,17 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 lg:pt-24"
     >
-      {/* Parallax Background Layer */}
+      {/* Background */}
       <motion.div
         style={{ y }}
-        className="absolute inset-0 bg-gradient-to-br from-dark-950 via-dark-900 to-dark-950"
+        className="absolute inset-0 bg-white"
       >
-        {/* Soft Gradient Depth */}
-        <div className="absolute inset-0 opacity-15">
-          <div className="absolute top-1/3 left-1/3 w-96 h-96 bg-primary-600 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/3 right-1/3 w-96 h-96 bg-primary-500 rounded-full blur-3xl" />
+        {/* Soft Accent Glow */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-1/3 left-1/3 w-96 h-96 bg-primary-500 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/3 right-1/3 w-96 h-96 bg-primary-200 rounded-full blur-3xl" />
         </div>
       </motion.div>
-
-      {/* Subtle Grain Texture */}
-      <div className="absolute inset-0 noise-texture z-[1]" />
 
       {/* Main Content - Centered */}
       <motion.div
@@ -45,9 +42,9 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-dark-50 via-primary-200 to-primary-400 mb-5 lg:mb-6 leading-[1.15] tracking-[-0.02em]"
+            className="font-display font-bold text-dark-900 mb-5 lg:mb-6 tracking-[-0.02em]"
             style={{
-              fontSize: 'clamp(2.25rem, 5.5vw, 4rem)',
+              fontSize: 'clamp(2.25rem, 5.5vw, 3.5rem)',
             }}
           >
             Get More Appointments in 7 Days with a High-Converting Landing Page
@@ -58,7 +55,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="font-sans text-base lg:text-xl text-dark-300 mb-8 lg:mb-10 max-w-2xl mx-auto leading-relaxed"
+            className="font-sans text-base lg:text-xl text-dark-700 mb-8 lg:mb-10 max-w-2xl mx-auto leading-relaxed"
           >
             We build appointment focused landing pages for clinics, salons and service businesses designed to turn visitors into booked customers.
           </motion.p>
@@ -72,17 +69,17 @@ export default function Hero() {
           >
             {/* Primary CTA */}
             <motion.button
-              className="px-7 py-3 lg:px-8 lg:py-3.5 bg-primary-600 hover:bg-primary-500 text-dark-50 font-medium rounded-md transition-all duration-200 text-base shadow-lg shadow-primary-600/25"
+              className="px-7 py-3 lg:px-8 lg:py-3.5 bg-primary-500 text-white font-medium rounded-xl transition-all duration-200 text-base shadow-sm hover:bg-primary-600"
               whileHover={{ 
-                scale: 1.03,
-                boxShadow: '0 12px 32px rgba(14, 165, 233, 0.35)',
+                scale: 1.02,
+                boxShadow: '0 4px 12px rgba(124, 108, 255, 0.25)',
               }}
               whileTap={{ scale: 0.98 }}
             >
-              Get Free Demo
+               Book Appointment
             </motion.button>
 
-            {/* Secondary CTA */}
+            {/* Secondary CTA
             <motion.button
               className="px-7 py-3 lg:px-8 lg:py-3.5 bg-dark-900/40 backdrop-blur-sm border border-dark-700 hover:border-primary-600/50 text-dark-200 hover:text-dark-50 font-medium rounded-md transition-all duration-200 text-base"
               whileHover={{ 
@@ -91,8 +88,8 @@ export default function Hero() {
               }}
               whileTap={{ scale: 0.98 }}
             >
-              Book Appointment
-            </motion.button>
+             
+            </motion.button> */}
 
             {/* WhatsApp CTA - Icon Button */}
             <motion.a
@@ -100,7 +97,7 @@ export default function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Contact us on WhatsApp"
-              className="px-7 py-3 lg:px-8 lg:py-3.5 bg-dark-900/30 backdrop-blur-sm border border-dark-700/50 hover:border-primary-600/40 text-dark-300 hover:text-primary-400 font-medium rounded-md transition-all duration-200 text-base inline-flex items-center gap-2"
+              className="px-7 py-3 lg:px-8 lg:py-3.5 bg-transparent border border-primary-500 hover:border-primary-600 text-primary-500 hover:text-primary-600 font-medium rounded-xl transition-all duration-200 text-base inline-flex items-center gap-2"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
             >

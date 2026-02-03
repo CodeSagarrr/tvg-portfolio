@@ -2,6 +2,7 @@
 
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
+import TiltCard from '@/components/TiltCard'
 
 export default function Process() {
   const ref = useRef<HTMLElement>(null)
@@ -84,10 +85,10 @@ export default function Process() {
     <section
       ref={ref}
       id="process"
-      className="relative py-section bg-dark-900 overflow-hidden"
+      className="relative py-section overflow-hidden bg-white"
     >
       {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-dark-900 via-dark-950 to-dark-900" />
+      <div className="absolute inset-0" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-6xl mx-auto">
@@ -98,10 +99,10 @@ export default function Process() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16 lg:mb-24"
           >
-            <h2 className="text-display-2 font-display font-bold text-dark-50 mb-6">
+            <h2 className="text-display-2 font-display font-bold text-dark-900 mb-6">
               How a Landing Page Fixes This
             </h2>
-            <p className="text-dark-300 text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed">
+            <p className="text-dark-700 text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed">
               A landing page removes friction and guides visitors with clarity, structure, and a single call-to-action.
             </p>
             <div className="w-24 h-1 bg-primary-600 mx-auto" />
@@ -110,7 +111,7 @@ export default function Process() {
           {/* Process Steps */}
           <div className="relative">
             {/* Connection Line (Desktop) */}
-            <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-dark-800 transform -translate-y-1/2" />
+            <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-dark-300 transform -translate-y-1/2" />
 
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-6">
               {steps.map((step, index) => (
@@ -123,20 +124,20 @@ export default function Process() {
                 >
                   {/* Step Number Circle */}
                   <div className="relative z-10 flex flex-col items-center">
-                    <motion.div
-                      className="w-20 h-20 lg:w-24 lg:h-24 bg-dark-950/40 border border-dark-800 rounded-2xl flex items-center justify-center mb-6 text-primary-300 group-hover:border-primary-600/60 group-hover:bg-primary-600/10 transition-colors duration-300 shadow-premium"
-                      whileHover={{ scale: 1.03, y: -2 }}
-                      transition={{ duration: 0.25 }}
+                    <TiltCard
+                      className="w-20 h-20 lg:w-24 lg:h-24 bg-white border border-dark-300 rounded-2xl flex items-center justify-center mb-6 text-primary-500 group-hover:border-primary-500 group-hover:bg-primary-200 transition-colors duration-300 shadow-sm"
+                      tiltMax={10}
+                      lift={8}
                     >
                       {step.icon}
-                    </motion.div>
+                    </TiltCard>
 
                     {/* Step Content */}
                     <div className="text-center">
-                      <h3 className="text-xl lg:text-2xl font-display font-semibold text-dark-50 mb-4">
+                      <h3 className="text-xl lg:text-2xl font-display font-semibold text-dark-900 mb-4">
                         {step.title}
                       </h3>
-                      <p className="text-dark-300 leading-relaxed">
+                      <p className="text-dark-700 leading-relaxed">
                         {step.description}
                       </p>
                     </div>
@@ -144,7 +145,7 @@ export default function Process() {
 
                   {/* Connection Line Dot (Desktop) */}
                   {index < steps.length - 1 && (
-                    <div className="hidden lg:block absolute top-1/2 right-0 w-4 h-4 bg-primary-600 rounded-full transform -translate-y-1/2 translate-x-1/2 z-20" />
+                    <div className="hidden lg:block absolute top-1/2 right-0 w-4 h-4 bg-primary-500 rounded-full transform -translate-y-1/2 translate-x-1/2 z-20" />
                   )}
                 </motion.div>
               ))}

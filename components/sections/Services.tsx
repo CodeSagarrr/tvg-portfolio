@@ -2,6 +2,7 @@
 
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
+import TiltCard from '@/components/TiltCard'
 
 export default function Services() {
   const ref = useRef<HTMLElement>(null)
@@ -136,7 +137,7 @@ export default function Services() {
     <section
       ref={ref}
       id="services"
-      className="relative py-section bg-dark-950 overflow-hidden"
+      className="relative py-section overflow-hidden bg-dark-50"
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
@@ -158,44 +159,89 @@ export default function Services() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16 lg:mb-24"
           >
-            <h2 className="text-display-2 font-display font-bold text-dark-50 mb-6">
-              Why Normal Websites Don’t Work
-            </h2>
-            <p className="text-dark-300 text-lg lg:text-xl max-w-2xl mx-auto">
+            <p className="text-dark-700 text-lg lg:text-xl max-w-2xl mx-auto mb-8">
               When the goal is appointments, a multi-page website often adds friction instead of clarity.
             </p>
-            <div className="w-24 h-1 bg-primary-600 mx-auto mt-6" />
+            <div className="w-24 h-1 bg-primary-600 mx-auto" />
           </motion.div>
 
-          {/* Pain Points Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {painPoints.map((point, index) => (
-              <motion.div
-                key={point.title}
-                initial={{ opacity: 0, y: 50 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group relative bg-dark-900/60 backdrop-blur-sm border border-dark-800/80 rounded-2xl p-7 lg:p-8 hover:border-primary-600/60 transition-all duration-300"
-              >
-                {/* Soft Hover Wash */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-primary-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"
-                />
+          {/* Microchip Card Design */}
+          <div className="relative max-w-5xl mx-auto">
+            {/* Central Card */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative z-10 bg-white border-2 border-primary-500/30 rounded-3xl p-8 lg:p-12 shadow-sm mb-12 lg:mb-16"
+            >
+              <h2 className="text-display-2 font-display font-bold text-dark-900 text-center mb-4">
+                Why Normal Websites Don't Work
+              </h2>
+              <div className="w-32 h-1 bg-primary-600 mx-auto" />
+            </motion.div>
 
-                {/* Icon */}
-                <div className="w-12 h-12 bg-primary-600/15 text-primary-300 rounded-2xl mb-6 flex items-center justify-center border border-primary-600/20 group-hover:bg-primary-600/20 transition-colors duration-300">
-                  {point.icon}
-                </div>
+            {/* Pain Points arranged around central card */}
+            <div className="relative">
+              {/* Top Row */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6 mb-6">
+                {painPoints.slice(0, 3).map((point, index) => (
+                  <motion.div
+                    key={point.title}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
+                    className="relative"
+                  >
+                    {/* Connection line (visual) */}
+                    <div className="hidden lg:block absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-0.5 h-6 bg-gradient-to-b from-primary-500/40 to-transparent" />
+                    
+                    <TiltCard className="bg-white border border-dark-300 rounded-xl p-5 lg:p-6 hover:border-primary-500/50 transition-all duration-300 shadow-sm">
+                      <div className="flex items-start gap-3 mb-3">
+                        <div className="w-8 h-8 bg-primary-200 text-primary-500 rounded-lg flex items-center justify-center border border-primary-300 flex-shrink-0">
+                          {point.icon}
+                        </div>
+                        <h3 className="text-lg font-display font-semibold text-dark-900">
+                          {point.title}
+                        </h3>
+                      </div>
+                      <p className="text-dark-700 text-sm leading-relaxed">
+                        {point.description}
+                      </p>
+                    </TiltCard>
+                  </motion.div>
+                ))}
+              </div>
 
-                {/* Content */}
-                <h3 className="text-2xl font-display font-semibold text-dark-50 mb-4">
-                  {point.title}
-                </h3>
-                <p className="text-dark-300 leading-relaxed">
-                  {point.description}
-                </p>
-              </motion.div>
-            ))}
+              {/* Bottom Row */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
+                {painPoints.slice(3, 6).map((point, index) => (
+                  <motion.div
+                    key={point.title}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.6, delay: 0.7 + index * 0.1 }}
+                    className="relative"
+                  >
+                    {/* Connection line (visual) */}
+                    <div className="hidden lg:block absolute -top-6 left-1/2 transform -translate-x-1/2 w-0.5 h-6 bg-gradient-to-t from-primary-500/40 to-transparent" />
+                    
+                    <TiltCard className="bg-white border border-dark-300 rounded-xl p-5 lg:p-6 hover:border-primary-500/50 transition-all duration-300 shadow-sm">
+                      <div className="flex items-start gap-3 mb-3">
+                        <div className="w-8 h-8 bg-primary-200 text-primary-500 rounded-lg flex items-center justify-center border border-primary-300 flex-shrink-0">
+                          {point.icon}
+                        </div>
+                        <h3 className="text-lg font-display font-semibold text-dark-900">
+                          {point.title}
+                        </h3>
+                      </div>
+                      <p className="text-dark-700 text-sm leading-relaxed">
+                        {point.description}
+                      </p>
+                    </TiltCard>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
